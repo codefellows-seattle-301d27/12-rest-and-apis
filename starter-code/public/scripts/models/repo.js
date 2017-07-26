@@ -19,7 +19,7 @@ var app = app || {};
     })
     .then(
       function (data) {
-        let Data = data.map(repo =>({
+        repos.all = data.map(repo =>({
           html_url: repo.html_url,
           name: repo.name,
           description: repo.description,
@@ -27,11 +27,11 @@ var app = app || {};
           lastupdated: repo.updated_at,
           watchers_count: repo.watchers_count,
         }));
-        callback(Data);
+        callback(repos.all);
       }
     );
   };
-  
+
   // REVIEW: Model method that filters the full collection for repos with a particular attribute.
   // You could use this to filter all repos that have a non-zero `forks_count`, `stargazers_count`, or `watchers_count`.
   repos.with = attr => repos.all.filter(repo => repo[attr]);
