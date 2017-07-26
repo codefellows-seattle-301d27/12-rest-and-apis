@@ -22,7 +22,12 @@ var app = app || {};
     .then(function(data){
       let mappedData = data.map(repo => ({
         name: repo.name,
-        url: repo.html_url
+        html_url: repo.html_url,
+        description: repo.description,
+        language: repo.language,
+        created: repo.created_at,
+        lastUpdated: repo.updated_at,
+        watchers_count: repo.watchers_count
       }));
       callback(mappedData);
     })
