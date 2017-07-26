@@ -7,7 +7,7 @@ var app = app || {};
   repos.all = [];
 
   repos.requestRepos = function(callback) {
-    // TODO: How would you like to fetch your repos? Don't forget to call the callback.
+    // DONE TODO: How would you like to fetch your repos? Don't forget to call the callback.
     //       Remember that the callback function we'll want to call relies on repos.all
     //       being an array with a bunch of repo objects in it, so you'll need to
     //       populate it with the response from Github before you call the callback.
@@ -15,6 +15,7 @@ var app = app || {};
       {
         url: 'https://api.github.com/users/docjek/repos',
         // url: 'https://api.github.com/users/recursiveiteration/repos',
+        // the commented out code above is for partner's repo info
         method: 'GET',
         headers: {
           Authorization: `token ${githubToken}`
@@ -22,7 +23,7 @@ var app = app || {};
       })
       .then(
         function (data) {
-          let mappedData = data.map(repo => ({
+          repos.all = data.map(repo => ({
             name: repo.name,
             description: repo.description,
             language: repo.language,
@@ -30,8 +31,7 @@ var app = app || {};
             updated: repo.updated_at,
             watchers_count: repo.watchers_count
           }));
-          console.log(mappedData)
-          callback(mappedData);
+          callback(repos.all);
         }
       );
   };
