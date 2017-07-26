@@ -20,7 +20,7 @@ var app = app || {};
       }
     })
     .then(function(data) {
-      let mappedData = data.map(repo => ({
+      repos.all = data.map(repo => ({
         html_url: repo.html_url,
         name: repo.name,
         description: repo.description,
@@ -29,7 +29,7 @@ var app = app || {};
         updated_at: repo.updated_at,
         watchers_count: repo.watchers_count
       }));
-      callback(mappedData);
+      callback();
     });
 
   };
