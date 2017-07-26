@@ -15,6 +15,7 @@ var app = app || {};
       {
         url: 'https://api.github.com/users/docjek/repos',
         // url: 'https://api.github.com/users/recursiveiteration/repos',
+        // the commented out code above is for partner's repo info
         method: 'GET',
         headers: {
           Authorization: `token ${githubToken}`
@@ -30,7 +31,6 @@ var app = app || {};
             updated: repo.updated_at,
             watchers_count: repo.watchers_count
           }));
-          console.log(mappedData)
           callback(mappedData);
         }
       );
