@@ -24,6 +24,7 @@ var app = app || {};
       .then(
         function (data) {
           repos.all = data.map(repo => ({
+            html_url: repo.html_url,
             name: repo.name,
             description: repo.description,
             language: repo.language,
