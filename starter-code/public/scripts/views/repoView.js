@@ -18,7 +18,6 @@ var app = app || {};
   var render = Handlebars.compile(template);
 
   repoView.index = function() {
-    console.log('hi from repoView.index');
     ui();
 
 
