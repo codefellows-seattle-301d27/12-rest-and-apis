@@ -18,11 +18,11 @@ var app = app || {};
           Authorization: `token ${'githubToken'}`
         }
       }).then(function(data){
-          let mappedData = data.map(repo => {
-            name: repo.name;
-        });
+          let mappedData = data.map((repo => {
+            name: repo.name
+        })
       );
-      callback();
+      callback(mappedData);
     }
 
 
