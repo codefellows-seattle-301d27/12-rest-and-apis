@@ -25,7 +25,7 @@ var app = app || {};
         name: repo.name,
         description: repo.description,
         language: repo.language,
-        created: repo.created_at,
+        created_at: repo.created_at,
         updated_at: repo.updated_at,
         watchers_count: repo.watchers_count
       }));
