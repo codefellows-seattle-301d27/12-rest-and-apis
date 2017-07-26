@@ -9,11 +9,9 @@ var app = app || {};
 
     // DONE: Call a function to load all the data.
     // Pass a view function as a callback, so the view will render after the data is loaded.
-    // estimate 10 min, actual 5 min
-
+    // estimate 10 min, actual 10 min
     app.repos.requestRepos(app.repoView.index);
-
-  };
-
+    $('#about').show();
+  }
   module.aboutController = aboutController;
 })(app);
