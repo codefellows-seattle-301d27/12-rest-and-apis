@@ -26,7 +26,7 @@
       </article>
     </script>
 
-    <!-- TODO: We have a new Handlebars template! Help fill in a few expressions: -->
+    <!-- DONE: We have a new Handlebars template! Help fill in a few expressions: -->
     <script id="repo-template" type="text/x-handlebars-template">
       <li>
         <a href="{{html_url}}" target="_blank">
@@ -103,14 +103,17 @@
 
     <!-- Your secret GitHub token file should be added into your .gitignore file, therefore recreated on every developer's environment. -->
     <script src="/scripts/models/githubToken.js"></script>
-
+<script src="/scripts/models/repo.js"></script>
     <!-- Script files for the Article resource: -->
     <script src="/scripts/models/article.js"></script>
     <script src="/scripts/views/articleView.js"></script>
+    <script src="/scripts/views/newArticle.js"></script>
+    <script src="/scripts/views/adminView.js"></script>
     <script src="/scripts/controllers/articleController.js"></script>
+    <script src="/scripts/controllers/aboutController.js"></script>
 
-    <!-- TODO: Be sure to include any new script files: -->
-  
+    <!-- DONE: Be sure to include any new script files: -->
+
     <script src="/scripts/controllers/routes.js"></script>
   </body>
 </html>
