@@ -12,20 +12,20 @@ var app = app || {};
     //       being an array with a bunch of repo objects in it, so you'll need to
     //       populate it with the response from Github before you call the callback.
     $.ajax({
-        url: `http://api.github.com/users/repos`,
-        method: 'GET',
-        headers: {
-          'Authorization': `token ${githubToken}`
-        }
-      }).then(function(data){
+      url: `http://api.github.com/users/repos`,
+      method: 'GET',
+      headers: {
+        'Authorization': `token ${githubToken}`
+      }
+    }).then(function(data){
         //=====> I don't think we need to map this data. sent it all to the array and filter it below after the call
-          repos.all = data.map((repo => {
-            name: repo.name
-        })
+      repos.all = data.map((repo => {
+        name: repo.name
+      })
       );
       callback();
-    }
-
+    })
+  }
 
   // REVIEW: Model method that filters the full collection for repos with a particular attribute.
   // You could use this to filter all repos that have a non-zero `forks_count`, `stargazers_count`, or `watchers_count`.
