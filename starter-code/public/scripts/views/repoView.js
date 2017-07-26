@@ -12,12 +12,11 @@ var app = app || {};
     $about.show().siblings().hide();
   };
 
-  // Done: estimated 15 minutes actual 25 minutes Remember that new Handlebars template? Let's compile it!
+  // Done: estimated 15 minutes actual 85 minutes Remember that new Handlebars template? Let's compile it!
   // Save the result in this `render` variable.
-  module.displayRepos = function (repos) {
-    const repoTemplate = Handlebars.compile($('#repo-template').html());
-    $('#about').append(repoTemplate({repos:repos}))
-  }
+
+  const render = Handlebars.compile($('#repo-template').html());
+
 
 
   repoView.index = function() {
