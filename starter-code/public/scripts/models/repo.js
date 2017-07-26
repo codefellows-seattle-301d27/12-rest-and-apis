@@ -20,18 +20,17 @@ var app = app || {};
       }
     })
     .then(function(data) {
-      let mappedData = data.map(repo => ({
+      repos.all = data.map(repo => ({
         html_url: repo.html_url,
         name: repo.name,
         description: repo.description,
         language: repo.language,
-        created: repo.created_at,
+        created_at: repo.created_at,
         updated_at: repo.updated_at,
         watchers_count: repo.watchers_count
       }));
-      callback(mappedData);
+      callback();
     });
-
   };
 
   // REVIEW: Model method that filters the full collection for repos with a particular attribute.
