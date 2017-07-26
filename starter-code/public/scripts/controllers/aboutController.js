@@ -9,7 +9,12 @@ var app = app || {};
 
     // DONE: Call a function to load all the data.
     // Pass a view function as a callback, so the view will render after the data is loaded.
-    app.Article.loadAll();
+
+    module.repos.requestRepos(
+      function(repos){
+        module.repoView.index(repos);
+      }
+    );
   };
 
   module.aboutController = aboutController;
