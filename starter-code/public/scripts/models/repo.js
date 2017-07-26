@@ -23,6 +23,7 @@ var app = app || {};
     .then(
       function (res) {
         let repos = res.map(res => ({
+          name: res.name,
           description: res.description,
           language: res.language,
           created: res.created_at,
