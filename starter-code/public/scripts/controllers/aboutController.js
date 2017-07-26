@@ -9,7 +9,9 @@ var app = app || {};
 
     // TODO: Call a function to load all the data.
     // Pass a view function as a callback, so the view will render after the data is loaded.
-
+    app.repos.requestRepos(function(){
+      console.log('Hi from about controller')
+    })
   };
 
   module.aboutController = aboutController;
