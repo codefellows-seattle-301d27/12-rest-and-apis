@@ -31,7 +31,6 @@ var app = app || {};
       }));
       callback();
     });
-
   };
 
   // REVIEW: Model method that filters the full collection for repos with a particular attribute.
