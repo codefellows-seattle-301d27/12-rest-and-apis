@@ -11,7 +11,29 @@ var app = app || {};
     //       Remember that the callback function we'll want to call relies on repos.all
     //       being an array with a bunch of repo objects in it, so you'll need to
     //       populate it with the response from Github before you call the callback.
-
+    $.ajax(
+      {
+        // url: 'https://api.github.com/docjek/repos',
+        url: 'https://api.github.com/recursiveiteration/repos',
+        method: 'GET',
+        headers: {
+          Authorization: `token ${githubToken}`
+        }
+      })
+      .then(
+        function (data) {
+          let mappedData = data.map(repo => ({
+            name: repo.name,
+            description: repo.description,
+            language: repo.language,
+            created: repo.created_at,
+            updated: repo.updated_at,
+            watchers_count: repo.watchers_count
+          }));
+          console.log(mappedData)
+          callback(mappedData);
+        }
+      );
   };
 
   // REVIEW: Model method that filters the full collection for repos with a particular attribute.
