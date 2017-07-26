@@ -18,10 +18,7 @@ var app = app || {};
       headers: {Authorization: `token ${githubToken}`}
     })
     .then(function(data){
-      repos.all = data.map(repo => ({
-        name: repo.name,
-        url: repo.html_url}))
-      console.log(data);
+      repos.all = data;
       callback(repos.all);
     }, function(err) {
       console.log(err);
