@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
 // const conString = 'postgres://USERNAME:PASSWORD@HOST:PORT';
-const conString = `postgres://postgres:${PG_PASSWORD}@localhost:5432`; // TODO: DONE Don't forget to set your own conString
+const conString = `postgres://postgres:${process.env.PG_PASSWORD}@localhost:5432`; // TODO: DONE Don't forget to set your own conString
 // Completed in 2 minutes - Set up environmental variable in git bash
 const client = new pg.Client(conString);
 client.connect();
