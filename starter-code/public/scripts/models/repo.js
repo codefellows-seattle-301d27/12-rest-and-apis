@@ -7,6 +7,7 @@ var app = app || {};
   repos.all = [];
 
   repos.requestRepos = function(callback) {
+    console.log(10)
     // TODO: How would you like to fetch your repos? Don't forget to call the callback.
     //       Remember that the callback function we'll want to call relies on repos.all
     //       being an array with a bunch of repo objects in it, so you'll need to
@@ -17,7 +18,11 @@ var app = app || {};
       headers: {Authorization: `token ${githubToken}`}
     })
     .then(function(data){
+      repos.all = data.map(repo => ({
+        name: repo.name,
+        url: repo.html_url}))
       console.log(data);
+      callback(repos.all);
     }, function(err) {
       console.log(err);
     })
