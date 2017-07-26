@@ -12,17 +12,18 @@ var app = app || {};
     //       being an array with a bunch of repo objects in it, so you'll need to
     //       populate it with the response from Github before you call the callback.
     $.ajax({
-        url: 'http://api.github.com/users/repos',
+        url: `http://api.github.com/users/repos`,
         method: 'GET',
         headers: {
-          Authorization: `token ${'githubToken'}`
+          'Authorization': `token ${githubToken}`
         }
       }).then(function(data){
-          let mappedData = data.map((repo => {
+        //=====> I don't think we need to map this data. sent it all to the array and filter it below after the call
+          repos.all = data.map((repo => {
             name: repo.name
         })
       );
-      callback(mappedData);
+      callback();
     }
 
 
