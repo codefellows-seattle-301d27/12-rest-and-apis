@@ -13,8 +13,8 @@ var app = app || {};
     //       populate it with the response from Github before you call the callback.
     $.ajax(
       {
-        // url: 'https://api.github.com/docjek/repos',
-        url: 'https://api.github.com/recursiveiteration/repos',
+        url: 'https://api.github.com/users/docjek/repos',
+        // url: 'https://api.github.com/users/recursiveiteration/repos',
         method: 'GET',
         headers: {
           Authorization: `token ${githubToken}`
