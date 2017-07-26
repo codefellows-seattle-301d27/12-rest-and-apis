@@ -26,16 +26,19 @@
       </article>
     </script>
 
-    <!-- TODO: We have a new Handlebars template! Help fill in a few expressions: -->
+    <!-- TODO: DONE We have a new Handlebars template! Help fill in a few expressions: -->
+    <!-- Completed in 5 minutes after the completion of the repo.js requestRepos function -->
     <script id="repo-template" type="text/x-handlebars-template">
       <li>
         <a href="{{html_url}}" target="_blank">
-          <h3>{{}}</h3>
+          <h3>{{name}}</h3>
         </a>
-        <p>Description: {{}}</p>
-        <p>Language: {{}}</p>
-        <p>Created: {{}}</p>
-        <p>Last updated: {{}}</p>
+        {{#if description}}
+          <p>Description: {{description}}</p>
+        {{/if}}
+        <p>Language: {{language}}</p>
+        <p>Created: {{created_at}}</p>
+        <p>Last updated: {{updated_at}}</p>
         {{#if watchers_count}}
           <p>{{watchers_count}} watching this repo</p>
         {{/if}}
@@ -105,12 +108,16 @@
     <script src="/scripts/models/githubToken.js"></script>
 
     <!-- Script files for the Article resource: -->
+    <script src="/scripts/models/repo.js"></script>
     <script src="/scripts/models/article.js"></script>
     <script src="/scripts/views/articleView.js"></script>
+    <script src="/scripts/views/newArticle.js"></script>
+    <script src="/scripts/views/adminView.js"></script>
+    <script src="/scripts/views/repoView.js"></script>
+    <script src="/scripts/controllers/aboutController.js"></script>
     <script src="/scripts/controllers/articleController.js"></script>
 
-    <!-- TODO: Be sure to include any new script files: -->
-  
+    <!-- TODO: DONE Be sure to include any new script files: -->
     <script src="/scripts/controllers/routes.js"></script>
   </body>
 </html>
