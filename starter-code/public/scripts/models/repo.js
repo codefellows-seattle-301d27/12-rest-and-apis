@@ -14,7 +14,7 @@ var app = app || {};
     // est 15min act 30min
     // ajax call
     $.ajax({
-      url: 'https://api.github.com/orgs/codefellows-seattle-301d27/repos',
+      url: 'https://api.github.com/users/tyler-206/repos',
       method: 'GET',
       headers: {
         Authorization: `token ${githubToken}`
@@ -22,17 +22,10 @@ var app = app || {};
     })
     .then(
       function (res) {
-        let repos = res.map(res => ({
-          name: res.name,
-          description: res.description,
-          language: res.language,
-          created: res.created_at,
-          lastUpdated: res.updated_at,
-          watchers_count: res.watchers_count
-        }));
-        callback(repos);
+        repos.all = res;
       }
-    );
+    )
+    .then(callback)
   };
 
   // REVIEW: Model method that filters the full collection for repos with a particular attribute.
