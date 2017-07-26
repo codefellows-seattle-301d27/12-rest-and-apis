@@ -7,20 +7,18 @@ var app = app || {};
   repos.all = [];
 
   repos.requestRepos = function(callback) {
-    // Done!TODO: How would you like to fetch your repos? Don't forget to call the callback.
+    // DONE: How would you like to fetch your repos? Don't forget to call the callback.
     //       Remember that the callback function we'll want to call relies on repos.all
     //       being an array with a bunch of repo objects in it, so you'll need to
     //       populate it with the response from Github before you call the callback.
     $.ajax({
       url: 'https://api.github.com/user/repos',
       method: 'GET',
-      headers: {
-        Authorization :'token 69e223ab2982007e6016ceeded3807507c39b892'
-      }
+      headers: {Authorization: githubToken}
     })
     .then(
       function(data){
-        var mappedData = data.map(function(repo){
+        repos.all = data.map(function(repo){
           return {
             name: repo.name,
             description: repo.description,
@@ -30,7 +28,7 @@ var app = app || {};
             watchers_count: repo.watchers_count
           }
         })
-        console.log(mappedData);
+        callback();
       })
   };
 
