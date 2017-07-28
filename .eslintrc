@@ -1,5 +1,7 @@
 {
   "globals" : {
+    "githubToken": true,
+    "name": true,
     "rawData": true,
     "app": true,
     "Handlebars": true,
