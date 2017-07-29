@@ -13,12 +13,20 @@ var app = app || {};
     //       populate it with the response from Github before you call the callback.
     // estimated 20 min || actual 30 min
     $.ajax({
-      url: `http://api.github.com/users/repos`,
+      url: `https://api.github.com/user/repos`,
       method: 'GET',
       headers: {
-        'Authorization': `token ${githubToken}`
+        Authorization: `token ${githubToken}`
       }
-    });
+    })
+    .then(
+      function(data){
+        repos.all = data.map(repo => ({
+          name: repo.name,
+          url: repo.html_url
+        }));
+      }
+    )
     callback();
   }
 
