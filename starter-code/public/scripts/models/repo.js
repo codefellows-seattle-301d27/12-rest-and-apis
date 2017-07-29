@@ -28,8 +28,9 @@ var app = app || {};
           languages: repo.languages_url,
           created_at: repo.created_at,
           updated_at: repo.updated_at,
-          watchers_count: repo.watchers_count          
-        }));
+          watchers_count: repo.watchers_count
+        }
+      ));
       }
     )
     callback();
@@ -38,6 +39,5 @@ var app = app || {};
   // REVIEW: Model method that filters the full collection for repos with a particular attribute.
   // You could use this to filter all repos that have a non-zero `forks_count`, `stargazers_count`, or `watchers_count`.
   repos.with = attr => repos.all.filter(repo => repo[attr]);
-
   module.repos = repos;
 })(app);
