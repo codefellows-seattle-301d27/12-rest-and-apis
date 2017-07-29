@@ -23,7 +23,12 @@ var app = app || {};
       function(data){
         repos.all = data.map(repo => ({
           name: repo.name,
-          url: repo.html_url
+          html_url: repo.html_url,
+          description: repo.description,
+          languages: repo.languages_url,
+          created_at: repo.created_at,
+          updated_at: repo.updated_at,
+          watchers_count: repo.watchers_count          
         }));
       }
     )
