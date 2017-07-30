@@ -14,7 +14,9 @@ var app = app || {};
     $.ajax({
       url: 'https://api.github.com/user/repos',
       method: 'GET',
-      headers: {Authorization: githubToken}
+      headers: {
+        Authorization: `githubToken`
+      }
     })
     .then(
       function(data){
@@ -24,7 +26,7 @@ var app = app || {};
             description: repo.description,
             language: repo.language,
             create_date: repo.created_at,
-            last_undated: repo.updated_at,
+            last_updated: repo.updated_at,
             watchers_count: repo.watchers_count
           }
         })
