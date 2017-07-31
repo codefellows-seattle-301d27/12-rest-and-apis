@@ -19,20 +19,18 @@ var app = app || {};
         Authorization: `token ${githubToken}`
       }
     })
-    .then(
-        function (repos) {
-          let slimmedRepos = repos.map(repo => ({
-            name: repo.name,
-            html_url: repo.html_url,
-            description: repo.description,
-            language: repo.language,
-            created_at: repo.created_at,
-            updated_at: repo.updated_at,
-            watchers_count: repo.watchers_count
-          }));
-          callback(slimmedRepos);
-        }
-      )
+    .then(function(data){
+      repos.all = data.map(repo => ({
+        name: repo.name,
+        html_url: repo.html_url,
+        description: repo.description,
+        language: repo.language,
+        created_at: repo.created_at,
+        updated_at: repo.updated_at,
+        watchers_count: repo.watchers_count
+      }));
+      callback();
+    })
   };
 
   // REVIEW: Model method that filters the full collection for repos with a particular attribute.
